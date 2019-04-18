@@ -19,7 +19,7 @@
 *.tar.gz
 *.rar
 
-!software/*.*
+!/software/*.*
 # Test Dir
 test/*
 
