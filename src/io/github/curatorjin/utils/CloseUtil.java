@@ -6,7 +6,7 @@
  * 时间: 2018/12/5  18:49
  *
  */
-package cn.curatorjin.utils;
+package io.github.curatorjin.utils;
 
 import java.io.Closeable;
 import java.io.IOException;

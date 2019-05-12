@@ -1,12 +1,12 @@
 /*
  *
- * 文件名: FileUtils.java
+ * 文件名: TextFileUtils.java
  * 描述: 关于文件处理的工具类
  * 创建人: 0newing
  * 时间: 2018/12/5  18:43
  *
  */
-package cn.curatorjin.utils;
+package io.github.curatorjin.utils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,15 +17,15 @@ import java.util.List;
 
 
 /**
- * 文件工具
+ * 文本文件工具
  *
  * @author : 0newing
  * @version : 1.0
  */
-public final class FileUtils
+public final class TextFileUtils
 {
 
-    private FileUtils()
+    private TextFileUtils()
     {
     }
 
@@ -86,8 +86,6 @@ public final class FileUtils
                 }
             }
         }
-
         return false;
     }
-
 }
