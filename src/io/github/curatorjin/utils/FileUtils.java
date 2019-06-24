@@ -56,11 +56,17 @@ public final class FileUtils
                 {
                     deleteAll(f);
                 }
-                file.delete();
+                if (file.delete())
+                {
+                    LOGGER.info("delete success!");
+                }
             }
             else
             {
-                file.delete();
+                if (file.delete())
+                {
+                    LOGGER.info("delete success!");
+                }
             }
         }
     }
@@ -70,7 +76,7 @@ public final class FileUtils
      *
      * @param file 目标文件
      * @param type 加密类型
-     * @return
+     * @return 文件特征码
      * @throws IOException IO异常
      * @throws NoSuchAlgorithmException 无加密算法异常
      */
@@ -99,7 +105,7 @@ public final class FileUtils
      * 获取文件MD5
      *
      * @param file 目标文件
-     * @return
+     * @return 文件MD5
      * @throws IOException IO异常
      * @throws NoSuchAlgorithmException 无加密算法异常
      */
@@ -107,19 +113,19 @@ public final class FileUtils
         throws IOException, NoSuchAlgorithmException
     {
         byte[] b = getFileCode(file, "MD5");
-        String result = "";
-        for (int i = 0; i < b.length; i++)
+        StringBuilder result = new StringBuilder();
+        for (byte aB : b)
         {
-            result += Integer.toString((b[i] & 0xff) + 0x100, 16).substring(1);
+            result.append(Integer.toString((aB & 0xff) + 0x100, 16).substring(1));
         }
-        return result;
+        return result.toString();
     }
 
     /**
      * 获取文件SHA1
      *
      * @param file 目标文件
-     * @return
+     * @return 文件SHA1
      * @throws IOException IO异常
      * @throws NoSuchAlgorithmException 无加密算法异常
      */
@@ -127,19 +133,19 @@ public final class FileUtils
         throws IOException, NoSuchAlgorithmException
     {
         byte[] b = getFileCode(file, "SHA-1");
-        String result = "";
-        for (int i = 0; i < b.length; i++)
+        StringBuilder result = new StringBuilder();
+        for (byte aB : b)
         {
-            result += Integer.toString((b[i] & 0xff) + 0x100, 16).substring(1);
+            result.append(Integer.toString((aB & 0xff) + 0x100, 16).substring(1));
         }
-        return result;
+        return result.toString();
     }
 
     /**
      * 获取文件SHA256
      *
      * @param file 目标文件
-     * @return
+     * @return 文件SHA256
      * @throws IOException IO异常
      * @throws NoSuchAlgorithmException 无加密算法异常
      */
@@ -147,12 +153,12 @@ public final class FileUtils
         throws IOException, NoSuchAlgorithmException
     {
         byte[] b = getFileCode(file, "SHA-256");
-        String result = "";
-        for (int i = 0; i < b.length; i++)
+        StringBuilder result = new StringBuilder();
+        for (byte aB : b)
         {
-            result += Integer.toString((b[i] & 0xff) + 0x100, 16).substring(1);
+            result.append(Integer.toString((aB & 0xff) + 0x100, 16).substring(1));
         }
-        return result;
+        return result.toString();
     }
 
 }
